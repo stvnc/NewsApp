@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class NewsCell: UITableViewCell {
     
@@ -17,6 +18,17 @@ class NewsCell: UITableViewCell {
             configureData()
         }
     }
+    
+    let newsThumbnail: UIImageView = {
+       let iv = UIImageView()
+        iv.backgroundColor = .lightGray
+        iv.setDimensions(height: 70, width: 70)
+        iv.translatesAutoresizingMaskIntoConstraints = false
+        iv.layer.cornerRadius = 70/4
+        iv.clipsToBounds = true
+        
+        return iv
+    }()
     
     let authorLabel: UILabel = {
        let label = UILabel()
@@ -55,14 +67,20 @@ class NewsCell: UITableViewCell {
     // MARK: - Helpers
     
     func configureData(){
+        newsThumbnail.sd_setImage(with: URL(string: article?.image ?? ""), completed: nil)
         authorLabel.text = article?.author
         dateLabel.text = article?.date
         titleLabel.text = article?.title
     }
     
     func configureCell(){
+        
+        addSubview(newsThumbnail)
+        newsThumbnail.centerY(inView: self)
+        newsThumbnail.anchor(left: leftAnchor, paddingLeft: 16)
+        
         addSubview(authorLabel)
-        authorLabel.anchor(top: topAnchor, left: leftAnchor, paddingTop: 5, paddingLeft: 16)
+        authorLabel.anchor(top: topAnchor, left: newsThumbnail.rightAnchor, paddingTop: 5, paddingLeft: 5)
         
         addSubview(dateLabel)
         dateLabel.anchor(top: authorLabel.topAnchor, bottom: authorLabel.bottomAnchor, right: rightAnchor, paddingRight: 16)

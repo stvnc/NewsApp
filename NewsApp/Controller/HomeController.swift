@@ -88,7 +88,7 @@ extension HomeController: UISearchResultsUpdating{
 
 func updateSearchResults(for searchController: UISearchController) {
     
-    let searchText = searchController.searchBar.text!
+    let searchText = searchController.searchBar.text!.replacingOccurrences(of: " ", with: "%20")
     
     NetworkLayer.shared.fetchNews(category: searchText, completion: { result in
         self.articles = result.articles.filter {

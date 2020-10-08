@@ -19,7 +19,7 @@ struct Helpers {
         dateFormatterGet.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         let dateFormatterResult = DateFormatter()
-        dateFormatterResult.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatterResult.dateFormat = "MM-dd-yyyy"
         
         guard let date = dateFormatterGet.date(from: dateVal) else { return "" }
         

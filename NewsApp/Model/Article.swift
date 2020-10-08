@@ -15,6 +15,7 @@ class Article: Codable {
     var date: String
     let image: String?
     let content: String?
+    let url: String?
     
     private enum CodingKeys: String, CodingKey {
         case author = "author"
@@ -23,5 +24,6 @@ class Article: Codable {
         case date = "publishedAt"
         case image = "urlToImage"
         case content = "content"
+        case url = "url"
     }
 }
