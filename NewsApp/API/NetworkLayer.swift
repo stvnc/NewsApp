@@ -5,7 +5,7 @@
 //  Created by Vincent Angelo on 06/10/20.
 //  Copyright © 2020 Vincent Angelo. All rights reserved.
 //
-
+// Add DispatchGroup for the headline news
 import Foundation
 
 struct NetworkLayer {
@@ -19,6 +19,7 @@ struct NetworkLayer {
     func fetchNews(category: String, completion: @escaping(Result) -> Void, errorHandler: @escaping(Error) -> Void) {
         
         let currentDate = Helpers.shared.getCurrentDate()
+        
         
         guard let url = URL(string: "http://newsapi.org/v2/everything?q=\(category)&from=\(currentDate)&sortBy=publishedAt&apiKey=\(apiKey)") else { return }
         

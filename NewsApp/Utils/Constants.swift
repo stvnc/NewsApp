@@ -10,3 +10,5 @@ import Foundation
 
 
 let apiKey = "866d0daeeb334df7bb7d190c88d9cd87"
+
+let appTitle = "NewsApp"

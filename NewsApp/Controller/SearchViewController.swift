@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeController: UITableViewController {
+class SearchViewController: UITableViewController {
     
     // MARK: - Properties
     
@@ -56,7 +56,7 @@ class HomeController: UITableViewController {
 
 // MARK: - UITableViewDelegate
 
-extension HomeController {
+extension SearchViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = NewsDetailController()
         controller.article = articles[indexPath.row]
@@ -70,7 +70,7 @@ extension HomeController {
 
 // MARK: - UITableViewDataSource
 
-extension HomeController {
+extension SearchViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
@@ -84,11 +84,11 @@ extension HomeController {
 
 // MARK: - SearchDelegate
 
-extension HomeController: UISearchResultsUpdating{
+extension SearchViewController: UISearchResultsUpdating{
 
 func updateSearchResults(for searchController: UISearchController) {
     
-    let searchText = searchController.searchBar.text!.replacingOccurrences(of: " ", with: "%20")
+    let searchText = searchController.searchBar.text!.replacingOccurrences(of: " ", with: "%2")
     
     NetworkLayer.shared.fetchNews(category: searchText, completion: { result in
         self.articles = result.articles.filter {

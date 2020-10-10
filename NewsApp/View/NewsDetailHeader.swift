@@ -43,10 +43,15 @@ class NewsDetailHeader: UIView {
     }()
     
     // MARK: - Initialization
+//
+//    init(article: Article){
+//        super.init(frame: .zero)
+//        self.article = article
+//        configureView()
+//    }
     
-    init(article: Article){
+    override init(frame: CGRect) {
         super.init(frame: .zero)
-        self.article = article
         configureView()
     }
     
@@ -58,7 +63,7 @@ class NewsDetailHeader: UIView {
     
     func configureView(){
         
-        backgroundColor = .white
+        backgroundColor = .black
         
         addSubview(titleLabel)
         titleLabel.centerX(inView: self)

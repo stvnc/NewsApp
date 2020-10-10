@@ -15,7 +15,7 @@ class NewsDetailController: UIViewController {
     
     var article: Article?
     
-    lazy var header = NewsDetailHeader(article: article!)
+//    lazy var header = NewsDetailHeader(frame: CGRect()
     
 //    lazy var descriptionLabel: UILabel = {
 //       let label = UILabel()
@@ -60,19 +60,19 @@ class NewsDetailController: UIViewController {
     
     
     
-    func configureView(){
-        
-        view.backgroundColor = .white
-        header.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        view.addSubview(header)
-        header.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5)
-        
-//        configureHeight()
+//    func configureView(){
 //
-//        view.addSubview(descriptionLabel)
-//        descriptionLabel.anchor(top: header.bottomAnchor, left: header.leftAnchor, right: header.rightAnchor, paddingTop: 15, paddingLeft: 16, paddingRight: 16)
-        
-    }
+//        view.backgroundColor = .white
+//        header.heightAnchor.constraint(equalToConstant: 150).isActive = true
+//        view.addSubview(header)
+//        header.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 5)
+//
+////        configureHeight()
+////
+////        view.addSubview(descriptionLabel)
+////        descriptionLabel.anchor(top: header.bottomAnchor, left: header.leftAnchor, right: header.rightAnchor, paddingTop: 15, paddingLeft: 16, paddingRight: 16)
+//
+//    }
 }
 
 extension NewsDetailController: WKNavigationDelegate {
